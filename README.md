@@ -6,3 +6,5 @@ Minicart plugin to add old price, discount percentage and saved amount to minica
 - Move the folder into app/code in your Magento 2 project
 - Run bin/magento setup:upgrade && bin/magento setup:di:compile
 - Check it is working by adding a discout or tier price to a product. 
+
+![alt text](https://github.com/diegodominguez3/Magento2-MinicartPlugin/blob/master/m2minicartplugin.jpg)
