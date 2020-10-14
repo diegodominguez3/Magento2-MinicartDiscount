@@ -1,4 +1,4 @@
-# Magento2-MinicartPlugin
+# Magento2 Minicart Discount
 Minicart plugin to add old price, discount percentage and saved amount to minicart products with discount (special price, tier price, cart price rule, catalog price rule, etc). 
 
 ## Installation 
