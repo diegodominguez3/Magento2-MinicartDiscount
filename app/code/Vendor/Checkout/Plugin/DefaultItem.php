@@ -19,25 +19,22 @@ class DefaultItem
     {
         $data = $proceed($item);
         $atts = [];
-        $product = $item->getProduct();
-        $regularPrice = $product->getPriceInfo()->getPrice('regular_price')->getAmount()->getValue();
-        $specialPrice = $product->getSpecialPrice();
-        $tierPrice = $product->getTierPrice();
-        $savedAmount = $regularPrice - $specialPrice;
-        $discountPercentage = round((100 - ($specialPrice / $regularPrice) * 100));
-        if (!empty($tierPrice)) {
-            $discountPercentage = round($tierPrice[0]['percentage_value'], 0);
-            $savedAmount = $regularPrice - $tierPrice[0]['price'];
+        $discount = 0; 
+        $save = 0; 
+        $currentPrice = $item->getProduct()->getPriceInfo()->getPrice('final_price')->getAmount()->getValue(); 
+        $originalPrice = $item->getProduct()->getPriceInfo()->getPrice('regular_price')->getAmount()->getValue();
+        if ($currentPrice != $originalPrice) {
+            $discount = round((($originalPrice - $item->getPrice()) / $originalPrice) * 100, 0);
+            $save = $originalPrice - $currentPrice;
         }
 
-            $atts = [
-                "regular_price_value" => $regularPrice,
-                "regular_price" => $this->currencyInterface->format($regularPrice, false, 2),
-                "tier_price" => $tierPrice,
-                "saved_amount" => $this->currencyInterface->format($savedAmount, false, 2),
-                "discount_percentage" => $discountPercentage
-            ];
+        $atts = [
+            "regular_price_value" => $originalPrice, 
+            "regular_price" => $this->currencyInterface->format($originalPrice, false, 2),
+            "discount_percentage" => $discount, 
+            "saved_amount" => $this->currencyInterface->format($save, false, 2)
+        ];
 
-            return array_merge($data, $atts);
+        return array_merge($data, $atts);
     }
 }
