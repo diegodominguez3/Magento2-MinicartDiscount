@@ -3,7 +3,6 @@
     <group name="quote_item">
         <attribute name="regular_price_value"/>
         <attribute name="regular_price"/>
-        <attribute name="tier_price"/>
         <attribute name="discount_percentage"/>
         <attribute name="saved_amount"/>
     </group>
