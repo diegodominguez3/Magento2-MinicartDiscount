@@ -7,6 +7,6 @@ Working on Magento 2.3.5
 - Rename 'vendor' folder to your company name. 
 - Move the folder into app/code in your Magento 2 project
 - Run bin/magento setup:upgrade && bin/magento setup:di:compile
-- Check it is working by adding a discout or tier price to a product. 
+- Check it! is working by adding a discount. 
 
 ![alt text](https://github.com/diegodominguez3/Magento2-MinicartPlugin/blob/master/m2minicartplugin.jpg)
